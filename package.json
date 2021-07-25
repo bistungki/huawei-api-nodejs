@@ -1,0 +1,15 @@
+{
+  "name": "huawei-api",
+  "version": "1.0.0",
+  "description": "get api huawei ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rizal",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "huawei-lte-api": "0.0.4"
+  }
+}
