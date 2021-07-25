@@ -16,11 +16,11 @@ Modem().then(data => {
                 sinr: res.sinr,
             }
             let quality = Math.abs(String(d.rsrq).split("dB").join(""))
-            if (quality <= 9.0) {
+            if (quality <= 9) {
                 csl(String(JSON.stringify(d)).green.bold)
-            } else if (quality >= 9.1 || quality <= 15.0) {
+            } else if ( quality <= 11) {
                 csl(String(JSON.stringify(d)).blue.bold)
-            } else if (quality >= 15.1 || quality <= 19.0) {
+            } else if ( quality <= 14) {
                 csl(String(JSON.stringify(d)).yellow.bold)
             } else {
                 csl(String(JSON.stringify(d)).red.bold)
