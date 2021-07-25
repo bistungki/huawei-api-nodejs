@@ -1,6 +1,7 @@
 
 const huaweiLteApi = require("huawei-lte-api")
 const dotenv = require('dotenv');
+const moment = require("moment");
 dotenv.config()
 //  const { AntennaTypeEnum } = require("huawei-lte-api/dist/enums/device")
 
@@ -19,4 +20,9 @@ exports.Modem = () => {
             }
         })
     })
+}
+
+exports.Now =  () => {
+    const d = "[" + moment(Date.now()).format("YYYY-MM-DD HH:mm:ss") + "] "
+    return d;
 }

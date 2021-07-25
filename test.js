@@ -1,3 +1,9 @@
 const dotenv = require('dotenv');
 dotenv.config()
-console.log("makan", process.env.URL)
+const ping = require("ping");
+const { Now } = require('./hooks');
+
+
+console.log( Now)
+
+ 
