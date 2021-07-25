@@ -8,20 +8,20 @@ let si = ""
 Modem().then(data => {
 
     const device = new huaweiLteApi.Device(data.connection)
-    si = setInterval( async () => {
-        device.signal().then(  res => {
+    si = setInterval(async () => {
+        device.signal().then(res => {
             const d = {
                 rsrq: res.rsrq,
                 rsrp: res.rsrp,
                 rssi: res.rssi,
                 sinr: res.sinr,
             }
-            const quality = String(d.rsrp).split("dBm").join("")
-            if (quality >= -80) {
+            let quality = Math.abs(String(d.rsrq).split("dB").join(""))
+            if (quality <= 9.0) {
                 csl(String(JSON.stringify(d)).green.bold)
-            } else if (quality >= -90.0) {
+            } else if (quality >= 9.1 || quality <= 15.0) {
                 csl(String(JSON.stringify(d)).blue.bold)
-            } else if (quality >= -100.0) {
+            } else if (quality >= 15.1 || quality <= 19.0) {
                 csl(String(JSON.stringify(d)).yellow.bold)
             } else {
                 csl(String(JSON.stringify(d)).red.bold)
@@ -36,7 +36,7 @@ Modem().then(data => {
     clearInterval(si)
 })
 
-const csl = (log) =>{
+const csl = (log) => {
     console.log(Now(), log)
 }
 
