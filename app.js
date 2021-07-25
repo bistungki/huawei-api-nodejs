@@ -13,7 +13,6 @@ Modem().then(data => {
             const d = {
                 rsrq: res.rsrq,
                 rsrp: res.rsrp,
-                rssi: res.rssi,
                 sinr: res.sinr,
             }
             let quality = Math.abs(String(d.rsrq).split("dB").join(""))
