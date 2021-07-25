@@ -1,7 +1,12 @@
 
- const huaweiLteApi = require("huawei-lte-api")
+const huaweiLteApi = require("huawei-lte-api")
+const dotenv = require('dotenv');
+dotenv.config()
 //  const { AntennaTypeEnum } = require("huawei-lte-api/dist/enums/device")
-exports.Connection = new huaweiLteApi.Connection('http://admin:redkocin@192.168.8.1', 5000)
+
+
+
+exports.Connection = new huaweiLteApi.Connection(process.env.URL, 5000)
 exports.Modem = () => {
     return new Promise((resolve, reject) => {
         this.Connection.ready.then((r) => {
